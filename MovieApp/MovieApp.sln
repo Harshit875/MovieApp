@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{86011608-41BC-4D60-9A01-DA599AD686B8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E647060E-FCF0-414B-A51F-278B987931CC}"
+	ProjectSection(SolutionItems) = preProject
+		src\Application\MovieApp.Application\MoviesService.cs = src\Application\MovieApp.Application\MoviesService.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{65709838-03F1-4903-A9A4-361C54BA926B}"
 EndProject
@@ -15,13 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{50628D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{989D9D17-DEAB-4D91-9769-09BAA075715D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.WebApi", "src\WebApi\MovieApp.WebApi\MovieApp.WebApi.csproj", "{7A5D5E0C-E145-4210-8CBD-7F3F4FDFE642}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.WebApi", "src\WebApi\MovieApp.WebApi\MovieApp.WebApi.csproj", "{7A5D5E0C-E145-4210-8CBD-7F3F4FDFE642}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Application", "src\Application\MovieApp.Application\MovieApp.Application.csproj", "{EFDADF69-2376-4871-8219-BE1056F0E598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Application", "src\Application\MovieApp.Application\MovieApp.Application.csproj", "{EFDADF69-2376-4871-8219-BE1056F0E598}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Models", "src\Models\MovieApp.Models\MovieApp.Models.csproj", "{A0E17396-8FCC-473E-9B32-180321D33EBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Models", "src\Models\MovieApp.Models\MovieApp.Models.csproj", "{A0E17396-8FCC-473E-9B32-180321D33EBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieApp.Infrastructure.Data", "src\Infrastructure\Data\MovieApp.Infrastructure.Data\MovieApp.Infrastructure.Data.csproj", "{66217D96-A004-4471-9C76-F4988498378A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieApp.Infrastructure.Data", "src\Infrastructure\Data\MovieApp.Infrastructure.Data\MovieApp.Infrastructure.Data.csproj", "{66217D96-A004-4471-9C76-F4988498378A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

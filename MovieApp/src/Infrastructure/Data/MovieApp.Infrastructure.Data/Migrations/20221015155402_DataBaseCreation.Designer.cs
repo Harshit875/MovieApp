@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieApp.Infrastructure.Data;
+using MovieApp.Infrastructure.Data.Configurations;
 
 #nullable disable
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieApp.Infrastructure.Data.Configurations;
 using MovieApp.Infrastructure.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,10 @@ namespace MovieApp.Infrastructure.Data
       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new MovieAppConfiguration());
+            modelBuilder.ApplyConfiguration(new MovieConfiguration());
+            modelBuilder.ApplyConfiguration(new ActorConfiguration());
+            modelBuilder.ApplyConfiguration(new ProducerConfiguration());
+
         }
         public DbSet<Movie> Movies { get; set; }   
         public DbSet<Actor> Actors { get; set; }
