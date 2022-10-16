@@ -20,10 +20,10 @@ namespace MovieApp.Infrastructure.Data.Entities
         public string Plot { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
+        [ForeignKey("Producer")]
+        public int ProducerId { get; set; }
         public virtual Producer Producer { get; set; }
         public virtual ICollection<Actor> Actors { get; set; }
-
-        public int ProducerId { get; set; } 
         public byte[]? Poster { get; set; }
 
     }

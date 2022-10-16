@@ -6,7 +6,7 @@ namespace MovieApp.Infrastructure.Data.Contracts
     {
         Task<IEnumerable<Movie>> GetMoviesAsync();
         Task<Movie> GetMovieByIdAsync(int id);
-        Task CreateMoviesAsync(Movie movie);
-        Task UpdateMoviesAsync(int id, Movie movie);
+        Task CreateMovieAsync(Movie movie);
+        Task UpdateMovieAsync(int id, Movie movie);
     }
 }

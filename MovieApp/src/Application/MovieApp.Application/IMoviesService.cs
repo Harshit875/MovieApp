@@ -7,8 +7,7 @@ namespace MovieApp.Application
     {
         Task<IEnumerable<Movie>> GetMoviesAsync();
 
-        Task CreateMoviesAsync(MovieDto movie);
-
-        Task UpdateMoviesAsync(int id, MovieDto movie);
+        Task CreateMovieAsync(MovieDto movie);
+        Task UpdateMovieAsync(int id, MovieDto movie);
     }
 }

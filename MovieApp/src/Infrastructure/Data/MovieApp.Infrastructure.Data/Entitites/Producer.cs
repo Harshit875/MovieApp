@@ -22,6 +22,7 @@ namespace MovieApp.Infrastructure.Data.Entities
 
         public string Sex { get; set; }
 
+        public string? Company { get; set; }
         [JsonIgnore]
         public virtual ICollection<Movie> Movies { get; set; }
     }

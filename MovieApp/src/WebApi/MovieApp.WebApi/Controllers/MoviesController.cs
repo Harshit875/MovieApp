@@ -32,7 +32,7 @@ namespace MovieApp.WebApi.Controllers
             {
                 return BadRequest("MovieDto object is null");
             }
-            await this.moviesService.CreateMoviesAsync(movie);
+            await this.moviesService.CreateMovieAsync(movie);
             return this.Ok(movie);
         }
 
@@ -43,7 +43,7 @@ namespace MovieApp.WebApi.Controllers
             {
                 return BadRequest("MovieDto object is null");
             }
-            await this.moviesService.UpdateMoviesAsync(id, movie);
+            await this.moviesService.UpdateMovieAsync(id, movie);
             return this.Ok(movie);
         }
     }

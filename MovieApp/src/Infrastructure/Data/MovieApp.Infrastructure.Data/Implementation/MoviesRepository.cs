@@ -18,9 +18,8 @@ namespace MovieApp.Infrastructure.Data.Implementation
             this.context = context;
         }
 
-        public async Task CreateMoviesAsync(Movie movie)
+        public async Task CreateMovieAsync(Movie movie)
         {
-            var actors = this.context.Actors.FindAsync(mov)
             await this.context.Movies.AddAsync(movie).ConfigureAwait(false);
             await this.context.SaveChangesAsync();
         }
@@ -36,7 +35,7 @@ namespace MovieApp.Infrastructure.Data.Implementation
             return result;
         }
 
-        public async Task UpdateMoviesAsync(int id, Movie movie)
+        public async Task UpdateMovieAsync(int id, Movie movie)
         {
             var existingMovie = await this.context.Movies.FindAsync(id).ConfigureAwait(false);
 
@@ -52,5 +51,6 @@ namespace MovieApp.Infrastructure.Data.Implementation
                 await this.context.SaveChangesAsync();
             }
         }
+
     }
 }

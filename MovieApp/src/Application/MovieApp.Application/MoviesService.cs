@@ -13,17 +13,21 @@ namespace MovieApp.Application
     public class MoviesService: IMoviesService
     {
         private readonly IMoviesRepository moviesRepository;
+        private readonly IActorsRepository actorsRepository;
         private readonly IMapper mapper;
-        public MoviesService(IMoviesRepository movieRepository, IMapper mapper)
+        public MoviesService(IMoviesRepository movieRepository,IActorsRepository actorsRepository, IMapper mapper)
         {
             this.moviesRepository = movieRepository;
+            this.actorsRepository = actorsRepository;
             this.mapper = mapper;   
         }
 
-        public async Task CreateMoviesAsync(MovieDto movie)
+        public async Task CreateMovieAsync(MovieDto movie)
         {
+            var actors  = this.actorsRepository.GetActors(movie.ActorIds);
             var movieEntity = this.mapper.Map<Movie>(movie);
-            await this.moviesRepository.CreateMoviesAsync(movieEntity).ConfigureAwait(false);
+            movieEntity.Actors = actors.Result;
+            await this.moviesRepository.CreateMovieAsync(movieEntity).ConfigureAwait(false);
         }
 
         public async Task<IEnumerable<Movie>> GetMoviesAsync()
@@ -32,10 +36,10 @@ namespace MovieApp.Application
             return result;
         }
 
-        public async Task UpdateMoviesAsync(int id, MovieDto movieDto)
+        public async Task UpdateMovieAsync(int id, MovieDto movieDto)
         {
                 var movieEntity = mapper.Map<Movie>(movieDto);
-                await this.moviesRepository.UpdateMoviesAsync(id, movieEntity);
+                await this.moviesRepository.UpdateMovieAsync(id, movieEntity);
         }
     }
 }

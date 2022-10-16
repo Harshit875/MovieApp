@@ -14,10 +14,7 @@ namespace MovieApp.Application
         public MovieMapper()
         {
             CreateMap<MovieDto, Movie>()
-                .ForMember(des => des.ProducerId, opt => opt.MapFrom(src => src.ProducerId))
-                .ForMember(des => des.Actors., opt => opt.MapFrom(src => src.ActorIds)
-            CreateMap<ProducerDto, Producer>();
-            CreateMap<ActorDto, Actor>();
+                .ForMember(des => des.ProducerId, opt => opt.MapFrom(src => src.ProducerId));
         }
     }
 }

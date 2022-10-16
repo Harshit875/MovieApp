@@ -16,6 +16,7 @@ namespace MovieApp.WebApi
             var configuration = builder.Configuration;
             builder.Services.AddScoped<IMoviesService, MoviesService>();
             builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
+            builder.Services.AddScoped<IActorsRepository, ActorRepository>();
             // Add services to the container.
             builder.Services.AddDbContext<MovieAppDbContext>(opts => opts.UseSqlServer(configuration.GetConnectionString("sqlconnection"),x=>x.MigrationsAssembly("MovieApp.Infrastructure.Data")));
             builder.Services.AddControllers().AddJsonOptions(x=>x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

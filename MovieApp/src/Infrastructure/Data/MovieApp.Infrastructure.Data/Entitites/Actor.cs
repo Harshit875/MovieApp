@@ -20,7 +20,6 @@ namespace MovieApp.Infrastructure.Data.Entities
 
         public DateTime DateOfBirth {get; set; }
 
-        public ICollection<int> ActorIds { get; set; }
         public string Sex {get; set; }
 
         [JsonIgnore]
