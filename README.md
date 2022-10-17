@@ -1,6 +1,6 @@
 # MovieApp
 
-I have used repository pattern with 3 tier architecture while designing the application. I have created separate api layer, business layer, data layer. I have followed SOLID Design principles and created loosely coupled services with separate interface and classes for every domain. I have also used dependecy injection to inject services in the project. For ORM(Object relational mappting) I have used Entity framework core with code first approach. All the scripts are there in the migration folder. For mapping entities and DTO I have used Automapper package.
+I have used repository pattern with 3 tier architecture while designing the application. I have created separate api layer, business layer, data layer. I have followed SOLID Design principles and created loosely coupled services with separate interface and classes for every domain. I have also used dependecy injection to inject services in the project. For ORM(Object relational mappting) I have used Entity framework core with code first approach. All the scripts generated are there in the migration folder in migration files. For mapping entities and DTO I have used Automapper package.
 
 
 ## API Documentation-
@@ -17,7 +17,7 @@ https://localhost:7008/api/Producers/GetAllProducers - To get all producers
 
 ##### POST-
 
-https://localhost:7008/api/Movies/CreateMovie - To create a movie
+https://localhost:7008/api/Movies/CreateMovie - To create a movie with actors and producer
 
 https://localhost:7008/api/Actors/CreateActor - To Create an actor
 
