@@ -1,6 +1,6 @@
 # MovieApp
 
-I have used repository pattern with 3 tier architecture while designing the application. I have created separate api layer, business layer, data layer. I have followed SOLID Design principles and created loosely coupled services with separate interface and classes for every domain. I have also used dependecy injection to inject services in the project.
+I have used repository pattern with 3 tier architecture while designing the application. I have created separate api layer, business layer, data layer. I have followed SOLID Design principles and created loosely coupled services with separate interface and classes for every domain. I have also used dependecy injection to inject services in the project. For ORM(Object relational mappting) I have used Entity framework core with code first approach. All the scripts are there in the migration folder. For mapping entities and DTO I have used Automapper package.
 
 
 ## API Documentation-
@@ -33,8 +33,8 @@ https://localhost:7008/api/Movies/UpdateMovie/id - To update a movie
 
 #### api/Actors/GetAllActors
 
-[
-  {
+
+[{
     "actorId": 1,
     "actorName": "Matthew McConaughey",
     "bio": "Actor",
@@ -54,8 +54,8 @@ https://localhost:7008/api/Movies/UpdateMovie/id - To update a movie
     "bio": "Actor",
     "dateOfBirth": "1977-11-04T00:00:00",
     "sex": "Male"
-  }
- ]
+  }]
+  
  -----------------------------------------------------------------------------------------------
  ####  api/Movies/GetAllMovies
  
