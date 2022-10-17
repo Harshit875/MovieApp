@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieApp.Application
+namespace MovieApp.Application.Mapper
 {
-    public class MovieMapper : Profile
+    public class ProducerMapper : Profile
     {
-        public MovieMapper()
+        public ProducerMapper()
         {
-            CreateMap<MovieDto, Movie>()
-                .ForMember(des => des.ProducerId, opt => opt.MapFrom(src => src.ProducerId));
+            CreateMap<ProducerDto, Producer>();
         }
     }
 }

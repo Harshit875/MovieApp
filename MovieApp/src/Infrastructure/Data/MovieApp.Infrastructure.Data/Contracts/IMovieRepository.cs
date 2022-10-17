@@ -2,7 +2,7 @@
 
 namespace MovieApp.Infrastructure.Data.Contracts
 {
-    public interface IMoviesRepository
+    public interface IMovieRepository
     {
         Task<IEnumerable<Movie>> GetMoviesAsync();
         Task<Movie> GetMovieByIdAsync(int id);

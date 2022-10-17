@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Infrastructure.Data.Implementation
 {
-    public class ActorRepository : IActorsRepository
+    public class ActorRepository : IActorRepository
     {
         private MovieAppDbContext context;
 
@@ -19,12 +19,18 @@ namespace MovieApp.Infrastructure.Data.Implementation
             this.context = context; 
         }
 
-        public Task CreateActorAsync(Actor movie)
+        public async Task CreateActorAsync(Actor actor)
         {
-            throw new NotImplementedException();
+            await this.context.AddAsync(actor);
+            await this.context.SaveChangesAsync();
         }
 
-        public async Task<ICollection<Actor>> GetActors(ICollection<int> actorIds)
+        public async Task<IEnumerable<Actor>> GetActorsAsync()
+        {
+            return await this.context.Actors.ToListAsync().ConfigureAwait(false);
+        }
+
+        public async Task<ICollection<Actor>> GetActorsByActorIdsAsync(ICollection<int> actorIds)
         {
             var actors = await this.context.Actors.Where(x => actorIds.Contains(x.ActorId)).ToListAsync().ConfigureAwait(false);
             return actors;

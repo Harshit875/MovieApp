@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using MovieApp.Application;
+using MovieApp.Application.Contracts;
+using MovieApp.Application.Services;
 using MovieApp.Infrastructure.Data;
 using MovieApp.Infrastructure.Data.Configurations;
 using MovieApp.Infrastructure.Data.Contracts;
@@ -14,9 +15,12 @@ namespace MovieApp.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;
-            builder.Services.AddScoped<IMoviesService, MoviesService>();
-            builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
-            builder.Services.AddScoped<IActorsRepository, ActorRepository>();
+            builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddScoped<IActorService, ActorService>();
+            builder.Services.AddScoped<IProducerService, ProducerService>();
+            builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+            builder.Services.AddScoped<IActorRepository, ActorRepository>();
+            builder.Services.AddScoped<IProducerRepository, ProducerRepository>();
             // Add services to the container.
             builder.Services.AddDbContext<MovieAppDbContext>(opts => opts.UseSqlServer(configuration.GetConnectionString("sqlconnection"),x=>x.MigrationsAssembly("MovieApp.Infrastructure.Data")));
             builder.Services.AddControllers().AddJsonOptions(x=>x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);

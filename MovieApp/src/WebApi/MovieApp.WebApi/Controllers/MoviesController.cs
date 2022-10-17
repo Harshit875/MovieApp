@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using MovieApp.Application;
+using MovieApp.Application.Contracts;
 using MovieApp.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,9 +11,9 @@ namespace MovieApp.WebApi.Controllers
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly IMoviesService moviesService;
+        private readonly IMovieService moviesService;
 
-        public MoviesController(IMoviesService moviesService)
+        public MoviesController(IMovieService moviesService)
         {
             this.moviesService = moviesService;
         }
@@ -22,6 +22,9 @@ namespace MovieApp.WebApi.Controllers
         public async Task<ActionResult> GetMoviesAsync()
         {
             var response = await this.moviesService.GetMoviesAsync();
+            if(response == null)
+                return NotFound();
+
             return this.Ok(response);
         }
 

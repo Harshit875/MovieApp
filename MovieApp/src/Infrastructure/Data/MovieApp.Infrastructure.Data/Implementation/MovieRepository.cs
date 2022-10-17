@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Infrastructure.Data.Implementation
 {
-    public class MoviesRepository : IMoviesRepository
+    public class MovieRepository : IMovieRepository
     {
         private MovieAppDbContext context;
-        public MoviesRepository(MovieAppDbContext context) 
+        public MovieRepository(MovieAppDbContext context) 
         {
             this.context = context;
         }
@@ -37,20 +37,26 @@ namespace MovieApp.Infrastructure.Data.Implementation
 
         public async Task UpdateMovieAsync(int id, Movie movie)
         {
-            var existingMovie = await this.context.Movies.FindAsync(id).ConfigureAwait(false);
-
-            if(existingMovie!= null)
+            var existingMovie = await this.context.Movies.Include(x=>x.Actors).FirstOrDefaultAsync(x=>x.MovieId==id).ConfigureAwait(false);            
+            if (existingMovie != null)
             {
-                existingMovie.Producer = movie.Producer;
+                foreach (Actor act in existingMovie.Actors)
+                {
+                    existingMovie.Actors.Remove(act);
+                }
+                existingMovie.ProducerId = movie.ProducerId;
                 existingMovie.Poster = movie.Poster;
-                existingMovie.Actors = movie.Actors;
-                existingMovie.Plot= movie.Plot;
-                existingMovie.Poster= movie.Poster; 
-                existingMovie.ReleaseDate= movie.ReleaseDate;
-                existingMovie.Title= movie.Title;
+                existingMovie.Plot = movie.Plot;
+                existingMovie.Poster = movie.Poster;
+                existingMovie.ReleaseDate = movie.ReleaseDate;
+                existingMovie.Title = movie.Title;
+                foreach(Actor act in movie.Actors)
+                {
+                    existingMovie.Actors.Add(act);  
+                }
+
                 await this.context.SaveChangesAsync();
             }
         }
-
     }
 }
